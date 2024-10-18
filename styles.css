@@ -1,0 +1,144 @@
+@font-face {
+  font-family: Inter;
+  src: url(assets/fonts/Inter-VariableFont_slnt\,wght.ttf);
+}
+
+/* custom properties */
+
+:root {
+  --clr-green: hsl(75, 94%, 57%);
+  --clr-white: hsl(0, 0%, 100%);
+  --clr-grey-700: hsl(0, 0%, 20%);
+  --clr-grey-800: hsl(0, 0%, 12%);
+  --clr-grey-900: hsl(0, 0%, 8%);
+
+  --font-family-sans: Inter, sans-serif;
+  --font-weight-base: 300;
+  --font-weight-bold: 550;
+
+  --font-size-heading: 1.75rem;
+  --font-size-smaller: 0.95rem;
+
+  --spacing-50: 0.5rem;
+  --spacing-100: 1rem;
+  --spacing-150: 1.5rem;
+  --spacing-200: 2rem;
+
+  --border-radius-50: 0.5rem;
+  --card-width-max: 24rem;
+}
+
+/* reset */
+
+* {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  box-sizing: border-box;
+
+  a {
+    text-decoration: none;
+  }
+  
+  ul, ol {
+    list-style: "";
+  }
+}
+
+/* base styles */
+
+body {
+  display: grid;
+  grid-template-rows: 100vh min-content;
+  background-color: var(--clr-grey-900);
+
+  font-family: var(--font-family-sans);
+  font-weight: var(--font-weight-base);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+}
+
+.profile-image {
+  --image-size: 6rem;
+  width: var(--image-size);
+  height: var(--image-size);
+  border-radius: var(--image-size);
+}
+
+.card {
+  width: min(var(--card-width-max), calc(100vw - var(--spacing-200)));
+  padding: var(--spacing-200);
+  border-radius: var(--border-radius-50);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-200);
+
+  background-color: var(--clr-grey-800);
+  color: var(--clr-white);
+  text-align: center;
+}
+
+.card header {
+  img {
+      margin-block-end: var(--spacing-150);
+  }
+
+  h1, h2, h3, h4 {
+    font-size: var(--font-size-heading);
+    font-weight: var(--font-weight-bold);
+    margin-block-end: var(--spacing-50);
+  }
+}
+
+.card .link-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-100);
+
+  a {
+    display: block;
+    padding: var(--spacing-100);
+    border-radius: 0.5rem;
+    
+    background-color: var(--clr-grey-700);
+    color: var(--clr-white);
+    font-weight: var(--font-weight-bold);
+  }
+
+  a:hover {
+    background-color: var(--clr-green);
+    color: var(--clr-grey-900);
+  }
+}
+
+/* utility classes */
+
+.text-smaller {
+  font-size: var(--font-size-smaller);
+}
+
+.text-accent {
+  font-weight: var(--font-weight-bold);
+  color: var(--clr-green);
+}
+
+/* media queries */
+
+@media screen and (max-width: 375px) {
+  :root {
+    --font-size-heading: 1.5rem;
+    --font-size-smaller: 0.9rem;
+  }
+
+  .card {
+    padding: var(--spacing-150);
+    gap: var(--spacing-150);
+  }
+}
